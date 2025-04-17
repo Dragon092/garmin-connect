@@ -1,5 +1,3 @@
-import appRoot from 'app-root-path';
-
 import FormData from 'form-data';
 import _ from 'lodash';
 import { DateTime } from 'luxon';
@@ -41,12 +39,6 @@ import {
 } from './types/activity';
 
 let config: GCCredentials | undefined = undefined;
-
-try {
-    config = appRoot.require('/garmin.config.json');
-} catch (e) {
-    // Do nothing
-}
 
 export type EventCallback<T> = (data: T) => void;
 

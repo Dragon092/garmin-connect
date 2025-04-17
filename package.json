@@ -36,7 +36,6 @@
         "examples/*"
     ],
     "devDependencies": {
-        "@types/app-root-path": "^1.2.4",
         "@types/lodash": "^4.14.199",
         "@types/luxon": "^3.3.2",
         "@types/node": "^18.11.15",
@@ -53,7 +52,6 @@
     },
     "runkitExampleFilename": "./examples/example.js",
     "dependencies": {
-        "app-root-path": "^3.1.0",
         "axios": "^1.5.1",
         "crypto": "^1.0.1",
         "form-data": "^4.0.0",
