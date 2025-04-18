@@ -8,7 +8,8 @@
         "build": "tsup",
         "build:watch": "npm run build -- --watch",
         "prettier:all": "prettier --write .",
-        "pretty": "pretty-quick --staged"
+        "pretty": "pretty-quick --staged",
+        "prepack": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -33,6 +34,7 @@
         "examples/*"
     ],
     "devDependencies": {
+        "@swc/core": "^1.11.21",
         "@types/lodash": "^4.14.199",
         "@types/luxon": "^3.3.2",
         "@types/node": "^18.11.15",

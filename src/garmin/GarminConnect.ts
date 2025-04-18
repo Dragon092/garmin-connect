@@ -37,6 +37,10 @@ import {
     GCActivityId,
     IActivity
 } from './types/activity';
+import { UpdateWeight, WeightData } from './types/weight';
+import { HydrationData, WaterIntake } from './types/hydration';
+import { GolfScorecard, GolfSummary } from './types/golf';
+import { HeartRate } from './types/heartrate';
 
 let config: GCCredentials | undefined = undefined;
 
