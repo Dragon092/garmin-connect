@@ -419,7 +419,7 @@ export default class GarminConnect {
         }
     }
 
-    async getDailyHydration(date = new Date()): Promise<number> {
+    async getDailyHydration(date = new Date(), format = 'ml'): Promise<number> {
         try {
             const dateString = toDateString(date);
             const hydrationData = await this.client.get<HydrationData>(
@@ -430,7 +430,13 @@ export default class GarminConnect {
                 throw new Error('Invalid or empty hydration data response.');
             }
 
-            return convertMLToOunces(hydrationData.valueInML);
+            if (format === 'ml') {
+                return hydrationData.valueInML;
+            } else if (format === 'oz') {
+                return convertMLToOunces(hydrationData.valueInML);
+            } else {
+                throw new Error('Invalid output format. Use "ml" or "oz".');
+            }
         } catch (error: any) {
             throw new Error(`Error in getDailyHydration: ${error.message}`);
         }
@@ -479,6 +485,28 @@ export default class GarminConnect {
             throw new Error(
                 `Error in updateHydrationLogOunces: ${error.message}`
             );
+        }
+    }
+
+    async updateHydrationLog(
+        date = new Date(),
+        value: number
+    ): Promise<WaterIntake> {
+        try {
+            const dateString = toDateString(date);
+            const hydrationData = await this.client.put<WaterIntake>(
+                `${this.url.HYDRATION_LOG}`,
+                {
+                    calendarDate: dateString,
+                    valueInML: value,
+                    userProfileId: (await this.getUserProfile()).profileId,
+                    timestampLocal: date.toISOString().substring(0, 23)
+                }
+            );
+
+            return hydrationData;
+        } catch (error: any) {
+            throw new Error(`Error in updateHydrationLog: ${error.message}`);
         }
     }
 
