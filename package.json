@@ -5,17 +5,14 @@
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {
-        "build": "tsc --build --clean && find ./dist -type d -empty -delete; tsc",
-        "build:windows": "tsc --build --clean && tsc",
+        "build": "tsup",
         "build:watch": "npm run build -- --watch",
-        "build:watch-windows": "npm run build:windows -- --watch",
         "prettier:all": "prettier --write .",
-        "pretty": "pretty-quick --staged",
-        "prepack": "npm run build"
+        "pretty": "pretty-quick --staged"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Pythe1337N/garmin-connect.git"
+        "url": "git+https://github.com/Dragon092/garmin-connect.git"
     },
     "keywords": [
         "garmin",
@@ -44,11 +41,12 @@
         "pre-commit": "^1.2.2",
         "prettier": "^2.8.1",
         "pretty-quick": "^3.1.3",
+        "tsup": "^8.4.0",
         "typescript": "^4.9.4"
     },
-    "homepage": "https://github.com/Pythe1337N/garmin-connect#readme",
+    "homepage": "https://github.com/Dragon092/garmin-connect#readme",
     "bugs": {
-        "url": "https://github.com/Pythe1337N/garmin-connect/issues"
+        "url": "https://github.com/Dragon092/garmin-connect/issues"
     },
     "runkitExampleFilename": "./examples/example.js",
     "dependencies": {
