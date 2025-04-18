@@ -30,8 +30,8 @@
     "author": "Oskar Bernberg (Pythe1337N)",
     "license": "MIT",
     "files": [
-        "dist/*",
-        "examples/*"
+        "dist",
+        "examples"
     ],
     "devDependencies": {
         "@swc/core": "^1.11.21",
